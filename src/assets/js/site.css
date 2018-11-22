@@ -1,0 +1,644 @@
+﻿body {
+  padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+  white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+  max-width: 280px;
+}
+.logo_eworl {
+  display: block;
+  margin: 0px auto;
+  width: 288px;
+  height: auto;
+}
+div#logo_principal {
+  background: white;
+}
+.navbar-inverse {
+  /*background-color: white;
+ border-color: #0db7f3;*/
+
+  background-color: #0db7f3;
+  border-color: #0db7f3;
+}
+.navbar-inverse .navbar-brand {
+  color: white;
+}
+.navbar-inverse .navbar-brand:hover {
+  color: black;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: white;
+  font-size: 17px;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: black;
+}
+#logo_planeta {
+  text-align: center;
+}
+#logo_canada {
+  text-align: center;
+}
+#logo_cursos {
+  text-align: center;
+}
+.text_align_center{
+  /* text-align:center; */
+  /* color: #383877; */
+}
+/*@media (min-width: 1200px)*/
+.containerF {
+  /* width: 1170px;*/
+}
+.containerF {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.container_footer {
+  background: #d3d3d3;
+}
+.txt_footer {
+  margin-top: 2%;
+  /* margin-left: 40%; */
+  margin-bottom: 2%;
+  color: #999999;
+  text-align: center;
+  /* font-weight: bold; */
+  font-size: 12px;
+}
+p.center_index_text {
+  display: block;
+  width: 100%;
+  margin: auto;
+  margin-top: 29px;
+  /* background-color: whitesmoke; */
+  text-align: justify;
+}
+div#mv {
+  width: 100%;
+  margin-top: 57px;
+  display: inline-flex;
+}
+.mision_css {
+  float: left;
+  width: 38%;
+  /*border: 1px solid lightgrey;*/
+  text-align:center;
+  margin-left: 11%;
+}
+.vision_css {
+  float: left;
+  margin-left: 4%;
+  width: 38%;
+  padding: 12px 12px;
+  text-align:center;
+  /*border: 1px solid lightgrey;*/
+}
+p.color_red {
+  color: #0db7f3;
+  /* font-style: italic; */
+  font-weight: bolder;
+  font-size: 26px;
+}
+
+.shadow {
+  box-shadow: 0 6px 16px -6px black;
+}
+.shadow:hover {
+  box-shadow: 0 6px 16px -6px #428bca;
+}
+/** Menu */
+ul#menu {
+  /*background: #333;
+  width: 940px;
+  float:left;
+  padding: 5px;*/
+}
+
+ul#menu li {
+  color: #fff;
+  float: left;
+  list-style: none;
+  /*margin: 0% 5%;*/
+}
+
+ul#menu li:hover{
+  color: #aaa073;
+  cursor:pointer;
+}
+ul#menu ul {
+  display: none;
+  position: absolute;
+  top: 49px;
+  background: #0db7f3;
+  color: #fff;
+  padding: 5px 5px 5px 18px;
+  margin: 0;
+}
+
+ul#menu ul li{
+  float: left;
+  color: #fff;
+  width:100%;
+  margin:2% 0%;
+}
+
+
+ul#menu ul li a{
+  color: #fff;
+}
+
+ul#menu ul li a:hover{
+  /*color: #aaa073;*/
+  color:black;
+  cursor:pointer;
+}
+
+ul#menu li:hover ul ul,ul#menu li:hover ul ul ul,ul#menu li.iehover ul ul,ul#menu li.iehover ul ul ul {
+  display: none;
+  cursor:pointer;
+}
+
+ul#menu li:hover ul,ul#menu ul li:hover ul,ul#menu ul ul li:hover ul,ul#menu li.iehover ul,ul#menu ul li.iehover ul,ul#menu ul ul li.iehover ul {
+  display: block;
+  cursor:pointer;
+}
+
+div#mv_wt {
+  width: 44%;
+  float: left;
+  /* background-color: #a07777; */
+  /* display: inline-flex; */
+  /* margin-top: 11px; */
+}
+.requisitos_css {
+  float: left;
+  width: 100%;
+  text-align: left;
+}
+.incluye_css {
+  float: left;
+  width: 100%;
+  text-align: left;
+}
+div#mv_wt2 {
+  width: 100%;
+  /* background-color: red; */
+  /* display: inline-flex; */
+  /* margin-top: 11px; */
+  margin-top: 1px;
+}
+.que_no_incluye_css {
+  text-align: left;
+  width: 100%;
+  float: left;
+}
+div#mv_wt3 {
+  width: 100%;
+  /* background-color: red; */
+  display: inline-flex;
+  margin-top: 11px;
+}
+.empleadores_disponibles {
+  /* float: left; */
+  width: 1070px;
+  /* background-color: #abbad6; */
+  height: 136px;
+}
+div#worktravel_outside {
+  margin-top: 49px;
+  /* width: 1000px; */
+  height: 236px;
+  /* background-color: #efefff; */
+}
+div#logo_w_tra {
+  /* background-color: #5f5656; */
+  width: 32%;
+  height: auto;
+  float: left;
+  margin-left: 65px;
+}
+div#worktravel_inside {display: block;margin-top: 17px;width: 71%;height: auto;float: left;font-size: 14px;/* padding: 50px 0px 62px; */text-align: justify;/* background-color: gainsboro; */}
+
+h2.bottom_line {
+  border-bottom: 1px solid #eeeeee;
+}
+div#canadaexperience_inside {
+  display: block;
+  width: 41%;
+  height: auto;
+  padding: 118px 0px 62px;
+  text-align: justify;
+  z-index: 2;
+  margin-left: 43%;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+div#mv_rc2 {
+  width: 100%;
+  /* background-color: red; */
+  display: inline-flex;
+  margin-top: 2px;
+  margin-bottom: 16%;
+  margin-left: -24px;
+}
+.requisitoscanada_css{
+  float: left;
+  width: 40%;
+  text-align: left;
+  margin-left: 48%;
+}
+div#cursosidiomas_inside {
+  width: 54%;
+  height: auto;
+  float: left;
+  /* background-color: red; */
+  margin-top: 74px;
+  text-align: justify;
+  font-size:13px;
+}
+.cursosidiomas_css{
+  float: left;
+  width: 66%;
+  padding: 12px 12px;
+  text-align: left;
+  border: 1px solid lightgrey;
+  margin: 0 auto;
+}
+div#mv_ci {
+  width: 100%;
+  /* background-color: red; */
+  display: inline-flex;
+  margin-top: 49px;
+  height: 158px;
+  margin-bottom: 30px;
+}
+
+.inglaterra_css {
+  float: left;
+  width: 24%;
+  padding: 12px 12px;
+  text-align: left;
+  /* border: 1px solid lightgrey; */
+  height: 118px;
+  /* background-color: #f6f6fe; */
+  margin-left: 23%;
+}
+img#imageinglaterra {
+  position: absolute;
+  margin-top: 16px;
+  margin-left: 31px;
+}
+
+.irlanda_css {
+  float: left;
+  width: 24%;
+  padding: 12px 12px;
+  text-align: left;
+  /* border: 1px solid lightgrey; */
+  height: 118px;
+  /* background-color: #f6f6fe; */
+  margin-left:91px;
+}
+img#imageirlanda {
+  position: absolute;
+  margin-top: 16px;
+  margin-left: 31px;
+}
+div#mv_ci2 {
+  width: 100%;
+  /* background-color: red; */
+  display: inline-flex;
+  margin-top: 10px;
+  height: 158px;
+  margin-bottom: 30px;
+}
+.estadosunidos_css {
+  float: left;
+  width: 24%;
+  padding: 12px 12px;
+  text-align: left;
+  /* border: 1px solid lightgrey; */
+  height: 118px;
+  /* background-color: #f6f6fe; */
+  margin-left: 23%;
+}
+img#imageestadosunidos {
+  position: absolute;
+  margin-top: 16px;
+  margin-left: 31px;
+}
+.francia_css {
+  float: left;
+  width: 24%;
+  padding: 12px 12px;
+  text-align: left;
+  /* border: 1px solid lightgrey; */
+  height: 118px;
+  /* background-color: #f6f6fe; */
+  margin-left:95px;
+}
+img#imagefrancia {
+  position: absolute;
+  margin-top: 16px;
+  margin-left: 31px;
+}
+
+div#mv_ci3 {
+  width: 100%;
+  /* background-color: red; */
+  display: inline-flex;
+  margin: 10px 10px;
+  height: 158px;
+}
+.alemania_css {
+  float: left;
+  width: 24%;
+  padding: 12px 12px;
+  text-align: left;
+  /* border: 1px solid lightgrey; */
+  height: 118px;
+  /* background-color: #f6f6fe; */
+  margin: 0px auto;
+}
+img#imagealemania {
+  position: absolute;
+  margin-top: 16px;
+  margin-left: 31px;
+}
+span.coment_country {
+  position: absolute;
+  margin-top: -6px;
+  margin-left: 90px;
+  font-weight: bolder;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+span.coment_countryia {
+  position: absolute;
+  margin-top: -6px;
+  margin-left: 49px;
+  font-weight: bolder;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.border_ci {
+  /* border-color: #EDEDED; */
+  /* box-shadow: -9px 6px 0px 2px #EDEDED; */
+}
+.border_ci:hover {
+  /* border-color: #EDEDED; */
+  /* box-shadow: -9px 6px 0px 2px #c7bcbc; */
+}
+
+.index_shadow:hover {
+  box-shadow: -8px 6px 20px 1px #eeeeee;
+  height: 600px;
+}
+div#enviar_mail {
+  width: 200px;
+  height: 100%;
+  margin: 0 auto;
+  padding-left: 19px;
+  padding-top: 12px;
+}
+input#mensaje {
+  height: 120px;
+  width: 159px;
+}
+.logo_eworl_enlaces {
+  display: block;
+  width: 26%;
+  height: auto;
+  float: right;
+  cursor: pointer;
+  margin-top: -55px;
+}
+#img_mision {
+  position: absolute;
+  margin-top: 27px;
+  margin-left: -105px;
+}
+div#logo_quienes_somos {
+  width: 44%;
+  height: auto;
+  float: left;
+  margin-left: 65px;
+}
+div#quienes_somos_outside {
+  margin-top: 63px;
+}
+div#quienes_somos_inside {
+  display: block;
+  width: 44%;
+  height: auto;
+  text-align: justify;
+  float: left;
+  padding: 88px 0px 62px;
+  background-repeat: repeat-x;
+}
+img#canada_ex_img {
+  position: absolute;
+  z-index: -10;
+}
+img#vinieta_cexp {
+  position: absolute;
+  margin-top: 4px;
+  margin-left: -18px;
+}
+
+h3.cexpe_left {
+  margin-left: 21px;
+}
+div#logo_cursosidiomasx {
+  /* background-color: #5f5656; */
+  width: 37%;
+  height: auto;
+  float: left;
+  margin-left: 65px;
+}
+div#cursosidiomas_outside {
+  margin-top: 53px;
+}
+div#contactos_outside {
+  width: 100%;
+  float: left;
+  background-color: white;
+  display: block;
+}
+div#logo_contactos {
+  background-color: #5f5656;
+  min-width: 40%;
+  margin-top: 12%;
+  height:200px;
+  float: left;
+  display: block;
+}
+div#contactos_inside {
+  height: auto;
+  min-width: 38%;
+  margin-top: 2%;
+  display: block;
+  margin-left: 29%;
+  padding-left: 63px;
+  float: left;
+  background-color: #ffffff;
+}
+div#eworl_agradece {
+  float: left;
+  /* height: 73px; */
+  width: 100%;
+  /* background-color: burlywood; */
+  margin-top: 12px;
+}
+div#eworl_campos {
+  float: left;
+  height: 407px;
+  width: 100%;
+  /* background-color: burlywood;*/
+  margin-top: 37px;
+}
+span#img_contac_gra {
+  position: absolute;
+  margin-left: -56px;
+  margin-top: -10px;
+}
+div#contact_ubica {
+  float: left;
+  min-width: 100%;
+  height: auto;
+  /* margin-top: 86px; */
+  display: block;
+  /* margin-bottom: 45px; */
+  background-color: oldlace;
+}
+div#logo_w_tra {
+  /* background-color: #5f5656; */
+  width: 24%;
+  height: auto;
+  float: left;
+  margin-left: -10px;
+  margin-top: 11px;
+}div#mw_wt_general {
+   width: 1174px;
+   font-size: 14px;
+   /* background-color: #f3ebeb; */
+   height: 661px;
+ }
+h3.text_al_wt {
+  margin-left: 40px;
+  font-weight: bold;
+  color: #383877;
+}
+
+div.img_wt_all {
+  width: 200px;
+  height: 153px;
+  /* background-color: blue; */
+  float: left;
+  margin-left: 12px;
+  margin-top: 12px;
+}
+div#fotos_wt {
+  /* background-color: #2c2c77; */
+  width: 650px;
+  height: 604px;
+  float: left;
+  margin-left: 2px;
+}
+div.img_wt_all_pri {
+  width: 290px;
+  height: 231px;
+  /* background-color: #a3d89f; */
+  float: left;
+  margin-left: 180px;
+}
+ul.list_padelinfo {
+  text-align: justify;
+}
+ul#submenu_wt {
+  font-size: 15px;
+}
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  width: 44%;
+}
+input#nombre,input#apellido,input#edad,input#email,input#pais,input#direccion,input#celular,input#ciudad {
+  border-radius: 5px;
+  background-color: #e6f1f3;
+  border: none;
+  width:278px
+}
+input#descripcion{
+  border-radius: 5px;
+  background-color: #e6f1f3;
+  border: none;
+  width:2055px;
+  /* margin-bottom: 18px; */
+  height:100px;
+  /* margin-bottom: 28px; */
+}
+input#send_cont {
+  /*margin-left: 198px;
+   margin-top: 13px; */
+  /* width: 120px; */
+  /* margin: 0 auto; */
+}
+span.field-validation-error {
+  position: absolute;
+  color: #af2323;
+  margin-left: 11px;
+}
+span#img_emailok {
+  position: absolute;
+  margin-left: -56px;
+  margin-top: -10px;
+}
+div#btn_email_ok {
+  margin-top: 14px;
+  margin: auto 0;
+  /* background-color: red; */
+  height: 45px;
+  padding-top: 2px;
+  /* width: 232px; */
+}
+button#send_cont {
+  margin-left: 194px;
+  /* margin-top: 12px; */
+}
+div#myCarousel {
+  margin-bottom: 60px;
+  margin: 0px 0px 15px 76px;
+}
+.col-md-4.index_shadow {
+  text-align: center;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+}
+ul#registrar_menu {
+  float: right;
+}

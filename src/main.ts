@@ -8,5 +8,13 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+/**platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));*/
+
+try {
+  platformBrowserDynamic().bootstrapModule(AppModule)
+    .catch(err => console.error(err));
+} catch (e) {
+  // logs `Can't resolve all parameters for App: (?)`
+  console.log('Bootstrap error', e);
+}
