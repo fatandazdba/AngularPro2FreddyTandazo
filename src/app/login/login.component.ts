@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {ConeccionService} from '../shared/services/coneccion.service';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { ConeccionService} from '../shared/services/coneccion.service';
 import { HttpClient } from '@angular/common/http';
+import {Router} from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +10,32 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  usuario: string;
-  constructor( private conex: ConeccionService) { }
+  token: string;
+  isLoginM: boolean = (sessionStorage.getItem('isLoginAcepted') === 'true') ? true : false;
+
+  constructor( private conex: ConeccionService, private router: Router) {
+  }
 
   ngOnInit() {
-  this.usuario = 'freddy';
   }
 
-  logearUsuario(){
-    this.conex.selectProducts();
-      console.log( "los mensajes del usuario");
+  logearUsuario(usuario: string, contrasenia: string){
+    this.conex.selectProducts(usuario, contrasenia).subscribe(
+      response => { this.token = response.toString();
+                         this.conex.isLogin = true;
+                         this.isLoginM = true;
+                         sessionStorage.setItem('isLoginAcepted', 'true');
+                         sessionStorage.setItem('token', response.toString());
+                         console.log( 'GOOD REQUEST IS LOGIN: ' + this.conex.isLogin);
+                         console.log(response.toString());
+                         $('#login').hide();
+                         $('#registrar').hide();
+                         $('#logout').show();
+                         this.router.navigate(['/inicio']);
+      },
+      error => {   this.conex.isLogin = false ;
+                         console.log( 'BAD REQUEST is login ' + this.conex.isLogin );
+      });
   }
+
 }

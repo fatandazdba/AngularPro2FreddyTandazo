@@ -1,19 +1,31 @@
 
-<form id="form_id" action="/action_page.php">
+<form id="form_id">
   <div class="imgcontainer">
     <img src="./assets/img/login.png" alt="Avatar" class="avatar" style="width:150px; height:150px;">
   </div>
 
   <div class="container">
     <label><b>Usuario</b></label>
-    <input type="text" placeholder="Ingrese el usuario" name="uname" required>
+    <input #thecodeuser type="text" placeholder="Ingrese el usuario" name="uname" required>
 
     <label><b>Clave</b></label>
-    <input type="password" placeholder="Ingrese la clave" name="psw" required>
+    <input #thecodeclave type="password" placeholder="Ingrese la clave" name="psw" required>
 
-    <button type="button" (click)="logearUsuario()">Login</button>
+    <button type="button" (click)="logearUsuario(thecodeuser.value, thecodeclave.value)">Login</button>
   </div>
-
 </form>
+
+<h1>token: {{token}}</h1>
+
+<h1>XXXXXXX is login {{isLoginM}}</h1>
+
+<div *ngIf="isLoginM"  class="alert alert-success">
+  <strong>Exito!</strong> El usuario ha sido autenticado de forma correcta.
+</div>
+
+<div  *ngIf="!isLoginM" class="alert alert-danger">
+  <strong>Error!</strong> El usuario no ha sido encontrado.
+</div>
+
 
 

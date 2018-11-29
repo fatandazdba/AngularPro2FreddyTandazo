@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-inicio',
@@ -10,6 +11,7 @@ export class InicioComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    ((sessionStorage.getItem('isLoginAcepted') === 'true' ) ? $('#logout').show() : $('#logout').hide());
   }
 
 }
