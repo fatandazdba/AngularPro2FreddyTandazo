@@ -1,62 +1,54 @@
-
-
-<div id="contactos_outside">
-  <div id="contactos_inside">
-    <div id="eworl_campos">
-      <form action="" enctype="multipart/form-data" method="post">
-        <fieldset>
-          <legend>Favor ingrese sus datos</legend>
-          <div >
-						<span class="editor-label">
-							<label for="usuario">Usuario : </label>
-						</span>
-            <span class="editor-field">
-							<input class=" text-box single-line" data-val="true" data-val-required="Ingrese el usuario" id="usuario" name="usuario" type="text" value="">
-							<span class="field-validation-valid" data-valmsg-for="usuario" data-valmsg-replace="true"></span>
-						</span>
+<!-- main app container -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h3>Registro</h3>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>Usuario</label>
+            <input type="text" formControlName="firstName" #user (blur)="count = verificarUser(user.value)"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+            <span>{{existUser}}</span>
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+              <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            </div>
           </div>
-          <div >
-						<span class="editor-label">
-							<label for="correo">Correo : </label>
-						</span>
-            <span class="editor-field">
-							<input class=" text-box single-line" data-val="true" data-val-required="Ingrese el correo" id="correo" name="correo" type="text" value="">
-							<span class="field-validation-valid" data-valmsg-for="correo" data-valmsg-replace="true"></span>
-						</span>
+          <div class="form-group">
+            <label>Correo</label>
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+            </div>
           </div>
-          <div >
-						<span class="editor-label">
-							<label for="clave">Clave : </label>
-						</span>
-            <span class="editor-field">
-							<input class=" text-box single-line" data-val="true" data-val-required="Ingrese el clave" id="clave" name="clave" type="text" value="">
-							<span class="field-validation-valid" data-valmsg-for="clave" data-valmsg-replace="true"></span>
-						</span>
+          <div class="form-group">
+            <label>Clave</label>
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
           </div>
-          <div >
-						<span class="editor-label">
-							<label for="repita_clave">Repita la clave : </label>
-						</span>
-            <span class="editor-field">
-							<input class=" text-box single-line" data-val="true" data-val-required="Repita la clave" id="repita_clave" name="repita_clave" type="text" value="">
-							<span class="field-validation-valid" data-valmsg-for="repita-clave" data-valmsg-replace="true"></span>
-						</span>
+          <div class="form-group">
+            <label>Repita la clave</label>
+            <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+              <div *ngIf="f.confirmPassword.errors.required">La contraseña repetida es requerida</div>
+              <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+            </div>
           </div>
-          <div >
-						<span class="editor-label">
-							<label for="fecha_nacimiento">Fecha de Nacimiento : </label>
-						</span>
-            <span class="editor-field">
-							<input class=" text-box single-line" data-val="true" data-val-required="Ingrese el no. Celular" id="fecha_nacimiento" name="fecha_nacimiento" type="text" value="">
-							<span class="field-validation-valid" data-valmsg-for="fecha_nacimiento" data-valmsg-replace="true"></span>
-						</span>
+          <div class="form-group">
+            <label>Fecha de Nacimiento</label>
+            <input type="date" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+              <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+            </div>
           </div>
-          <div id="btn_email_ok" >
-            <button id="send_cont" class="btn-primary" type="submit">Enviar</button>
-            <a href="">Ir al inicio</a>
+          <div class="form-group">
+            <button class="btn btn-primary">Enviar</button>
           </div>
-        </fieldset>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </div>

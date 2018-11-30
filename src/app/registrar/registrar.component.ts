@@ -3,6 +3,11 @@ import { ConeccionService} from '../shared/services/coneccion.service';
 import { HttpClient } from '@angular/common/http';
 import {Router} from '@angular/router';
 import * as $ from 'jquery';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {user} from '../shared/model/user.model';
+
+// import custom validator to validate that password and confirm password fields match
+import { MustMatch } from './must-match.validator';
 
 @Component({
   selector: 'app-registrar',
@@ -10,17 +15,64 @@ import * as $ from 'jquery';
   styleUrls: ['./registrar.component.css']
 })
 export class RegistrarComponent implements OnInit {
+  count: number ;
+  registerForm: FormGroup;
+  submitted = false;
+  existUser: string;
+  user: user;
 
-
-  constructor(private conex: ConeccionService, private router: Router) { }
+  constructor(private conex: ConeccionService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required]
+    }, {
+      validator: MustMatch('password', 'confirmPassword')
+    });
   }
-  verificarUser(usuario: string){
+
+  verificarUser(usuario: string) {
     this.conex.getUserServer(usuario).subscribe(
       response => { sessionStorage.setItem('isUserActivo', response.toString());
+                         console.log('Usuario ha sido verificado y SI existe: ' + response.toString());
+                         this.existUser =  usuario + ' ya existe, favor ingrese otro nombre de usuario' ;
       },
-      error => {   console.log( 'BAD REQUEST TO VERIFIQUE USER ' + error.toString() );
+      error => {   console.log( 'Usuario ha sido verificado y no existe ' + error.toString() );
+                         this.existUser = '';
       });
   }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.registerForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+    console.log('Estamos en ONSubmit');
+    // si el formulario es correcto hacemos la llamada al api
+    if (!this.registerForm.invalid) {
+
+      console.log(this.registerForm.value);
+      console.log(this.registerForm.get('firstName').value);
+      console.log('this.registerForm.invalid: ' + this.registerForm.invalid);
+      this.user = {username:  this.registerForm.get('firstName').value,
+                   email :    this.registerForm.get('email').value,
+                   password:  this.registerForm.get('password').value,
+                   /*birthdate: this.registerForm.get('birthdate').value*/
+                    birthdate: 0
+                  };
+      this.conex.registerUserServer(this.user).subscribe(
+        (response) => {console.log('Los datos SI fueron ingresados de forma correcta'),
+                           alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
+                           },
+        (error) => console.log('Los datos NO fueron ingresados de forma correcta' + error.toString())
+      );
+      return ;
+    }
+  }
+
+
 }

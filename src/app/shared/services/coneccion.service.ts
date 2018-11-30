@@ -19,7 +19,14 @@ export class ConeccionService {
       return this.http.get (this.baseurl + '/users/login/?username=' + usuario + '&password=' + contrasenia);
   }
 
-  getUserServer(usuario: string) {
-    return this.http.get (this.baseurl + '/users/user1');
+  getUserServer( usuario: string) {
+    return this.http.get (this.baseurl + '/users/' + usuario);
+  }
+
+  registerUserServer(user) {
+    const headers = new HttpHeaders()
+      .set( 'Content-Type' , 'application/json');
+      /*.set('Authorithation', sessionStorage.getItem('token')) ;*/
+      return this.http.post(this.baseurl + '/users', user, {headers});
   }
 }

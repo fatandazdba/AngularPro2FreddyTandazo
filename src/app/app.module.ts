@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { InicioComponent } from './inicio/inicio.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ConeccionService } from './shared/services/coneccion.service';
 import { HttpClientModule } from '@angular/common/http';
 import { OnDestroy } from '@angular/core';
@@ -25,7 +25,8 @@ import { RegistrarComponent } from './registrar/registrar.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ ConeccionService],
   bootstrap: [AppComponent]
