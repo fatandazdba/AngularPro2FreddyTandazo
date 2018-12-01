@@ -12,6 +12,7 @@ import { OnDestroy } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import { LogoutComponent } from './logout/logout.component';
 import { RegistrarComponent } from './registrar/registrar.component';
+import { ReservarComponent } from './reservar/reservar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RegistrarComponent } from './registrar/registrar.component';
     LoginComponent,
     InicioComponent,
     LogoutComponent,
-    RegistrarComponent
+    RegistrarComponent,
+    ReservarComponent
   ],
   imports: [
     BrowserModule,
