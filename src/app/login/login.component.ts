@@ -14,10 +14,11 @@ export class LoginComponent implements OnInit {
   isLoginM: boolean = (sessionStorage.getItem('isLoginAcepted') === 'true') ? true : false;
 
   constructor( private conex: ConeccionService, private router: Router) {
+    this.inicializar_loghinLogOut();
   }
 
   ngOnInit() {
-    /*this.isLoginM = false;*/
+    this.inicializar_loghinLogOut();
   }
 
   logearUsuario(usuario: string, contrasenia: string) {
@@ -37,8 +38,19 @@ export class LoginComponent implements OnInit {
       error => {   this.conex.isLogin = false ;
                          sessionStorage.setItem('isLoginAcepted', 'false');
                          this.isLoginM = true;
+                         $('#login').show();
+                         $('#registrar').show();
+                         $('#logout').hide();
                          console.log( 'BAD REQUEST is login ' + this.conex.isLogin );
       });
   }
 
+  inicializar_loghinLogOut() {
+    if ((sessionStorage.getItem('isLoginAcepted') === 'true' )) {
+      $('#logout').hide();
+    } else {
+      $('#login').show();
+      $('#registrar').show();
+    }
+  }
 }

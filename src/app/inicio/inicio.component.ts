@@ -8,10 +8,21 @@ import * as $ from 'jquery';
 })
 export class InicioComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    this.InicializarLiginLout();
+  }
 
   ngOnInit() {
-    ((sessionStorage.getItem('isLoginAcepted') === 'true' ) ? $('#logout').show() : $('#logout').hide());
+    this.InicializarLiginLout();
   }
+
+InicializarLiginLout() {
+  if ((sessionStorage.getItem('isLoginAcepted') === 'true' )) {
+    $('#logout').show();
+  } else {
+    $('#login').hide();
+    $('#registrar').hide();
+  }
+}
 
 }

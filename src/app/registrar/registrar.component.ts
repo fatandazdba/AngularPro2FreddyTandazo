@@ -32,6 +32,7 @@ export class RegistrarComponent implements OnInit {
     }, {
       validator: MustMatch('password', 'confirmPassword')
     });
+    $('#logout').hide();
   }
 
   verificarUser(usuario: string) {
