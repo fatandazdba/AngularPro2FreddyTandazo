@@ -20,16 +20,15 @@ export class RegistrarComponent implements OnInit {
   submitted = false;
   existUser: string;
   user: user;
-
   constructor(private conex: ConeccionService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
+      confirmPassword: ['', Validators.required],
+      birthdate: ['']
     }, {
       validator: MustMatch('password', 'confirmPassword')
     });
@@ -51,28 +50,34 @@ export class RegistrarComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log('Estamos en ONSubmit');
+    /*console.log(this.registerForm.value);*/
+
     // si el formulario es correcto hacemos la llamada al api
     if (!this.registerForm.invalid) {
-
-      console.log(this.registerForm.value);
-      console.log(this.registerForm.get('firstName').value);
-      console.log('this.registerForm.invalid: ' + this.registerForm.invalid);
       this.user = {username:  this.registerForm.get('firstName').value,
                    email :    this.registerForm.get('email').value,
                    password:  this.registerForm.get('password').value,
-                   /*birthdate: this.registerForm.get('birthdate').value*/
-                    birthdate: 0
+                   birthdate: this.getFecha1970(this.registerForm.get('birthdate').value)
                   };
       this.conex.registerUserServer(this.user).subscribe(
-        (response) => {console.log('Los datos SI fueron ingresados de forma correcta'),
-                           alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
+        (response) => { console.log('Los datos SI fueron ingresados de forma correcta'),
+                             alert('SUCCESS!! los datos fueron ingresados de forma correcta, ya puede realizar LOGIN :-)\n\n'),
+                             $('#logout').hide(),
+                             this.router.navigate(['/login']);
                            },
-        (error) => console.log('Los datos NO fueron ingresados de forma correcta' + error.toString())
-      );
+        (error) =>    { console.log('Los datos NO fueron ingresados de forma correcta' + error.toString()),
+                              alert('Alerta!! los datos no fueron ingresados :-( \n\n'),
+                              $('#logout').hide();
+                            });
       return ;
+    } else {
+        alert('Alerta!!  Los datos no fueron ingresados :-( \n\n' /*+ JSON.stringify(this.registerForm.value)*/);
+        $('#logout').hide();
     }
+
   }
 
-
+   getFecha1970(fecha: string): number {
+    return  (new  Date (fecha).getTime());
+   }
 }

@@ -1,0 +1,56 @@
+.jumbotron {
+  background-color: white;
+  width: 61%;
+  min-width: 60%;
+  margin: 0 auto;
+
+  border: 1px solid #f1f1f1;
+  -webkit-border-radius: 8px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+.form-group {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.form-group label {
+  margin: 5px 10px 5px 0;
+  /*width: 100%;*/
+}
+
+.form-group input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+@media (min-width: 992px) {
+  .col-md-7 {
+    width: 100%;
+  }
+}
+/*@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}*/
+.btn-primary {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+  margin: 0 auto;
+  width: 100%;
+}
+.class_error {
+  color: red;
+  font-size: 16px;
+  font-family: inherit;
+}

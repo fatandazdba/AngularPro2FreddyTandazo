@@ -17,13 +17,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    /*this.isLoginM = false;*/
   }
 
-  logearUsuario(usuario: string, contrasenia: string){
+  logearUsuario(usuario: string, contrasenia: string) {
     this.conex.selectProducts(usuario, contrasenia).subscribe(
       response => { this.token = response.toString();
                          this.conex.isLogin = true;
-                         this.isLoginM = true;
+                         this.isLoginM = false;
                          sessionStorage.setItem('isLoginAcepted', 'true');
                          sessionStorage.setItem('token', response.toString());
                          console.log( 'GOOD REQUEST IS LOGIN: ' + this.conex.isLogin);
@@ -34,6 +35,8 @@ export class LoginComponent implements OnInit {
                          this.router.navigate(['/inicio']);
       },
       error => {   this.conex.isLogin = false ;
+                         sessionStorage.setItem('isLoginAcepted', 'false');
+                         this.isLoginM = true;
                          console.log( 'BAD REQUEST is login ' + this.conex.isLogin );
       });
   }

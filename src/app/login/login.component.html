@@ -15,16 +15,9 @@
   </div>
 </form>
 
-<h1>token: {{token}}</h1>
-
-<h1>XXXXXXX is login {{isLoginM}}</h1>
-
-<div *ngIf="isLoginM"  class="alert alert-success">
-  <strong>Exito!</strong> El usuario ha sido autenticado de forma correcta.
-</div>
-
-<div  *ngIf="!isLoginM" class="alert alert-danger">
-  <strong>Error!</strong> El usuario no ha sido encontrado.
+<!--h1>isLoginM: {{isLoginM}}</h1-->
+<div  *ngIf="isLoginM" class="alert alert-danger">
+  <strong>Error!</strong> Favor verifique que los datos ingresdos son los correctos.
 </div>
 
 

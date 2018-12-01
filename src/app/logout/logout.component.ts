@@ -21,7 +21,7 @@ export class LogoutComponent implements OnInit {
     $('#logout').hide();
 
     /*ir a la pantalla de login*/
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login'], );
   }
 
 }

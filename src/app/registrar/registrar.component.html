@@ -2,50 +2,52 @@
 <div class="jumbotron">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <h3>Registro</h3>
+      <div class="col-md-7 offset-md-5">
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label>Usuario</label>
             <input type="text" formControlName="firstName" #user (blur)="count = verificarUser(user.value)"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
-            <span>{{existUser}}</span>
-            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-              <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            <span class="class_error">{{existUser}}</span>
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback class_error">
+              <div *ngIf="f.firstName.errors.required">Nombre de usuario es requerido</div>
             </div>
           </div>
           <div class="form-group">
             <label>Correo</label>
             <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-              <div *ngIf="f.email.errors.required">Email is required</div>
-              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback class_error">
+              <div *ngIf="f.email.errors.required">Correo es requerido</div>
+              <div *ngIf="f.email.errors.email">Email debe ser una direccion valida</div>
             </div>
           </div>
           <div class="form-group">
             <label>Clave</label>
             <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-              <div *ngIf="f.password.errors.required">Password is required</div>
-              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback class_error">
+              <div *ngIf="f.password.errors.required">Clave es requerida</div>
+              <div *ngIf="f.password.errors.minlength">Clave debe tener al menos seis caracteres</div>
             </div>
           </div>
           <div class="form-group">
             <label>Repita la clave</label>
             <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
-            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-              <div *ngIf="f.confirmPassword.errors.required">La contraseña repetida es requerida</div>
-              <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback class_error">
+              <div *ngIf="f.confirmPassword.errors.required">La clave repetida es requerida</div>
+              <div *ngIf="f.confirmPassword.errors.mustMatch">Las claves deben coincidir</div>
             </div>
           </div>
           <div class="form-group">
             <label>Fecha de Nacimiento</label>
-            <input type="date" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-              <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-            </div>
+            <input type="date" formControlName="birthdate" class="form-control"  />
           </div>
           <div class="form-group">
-            <button class="btn btn-primary">Enviar</button>
+                  <div class="col-lg-12">
+                    <div class="row">
+                      <div class="">
+                          <button class="btn btn-primary btn-sx">Enviar</button>
+                      </div>
+                    </div>
+                  </div>
           </div>
         </form>
       </div>
