@@ -1,3 +1,106 @@
-<p>
-  reservar works!
-</p>
+<div id="reservacionGeneral">
+  <!-- main app container -->
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label>Fecha</label>
+              <input type="date" formControlName="fecha" #fechaReserva  (blur)="count = getAllReservas(fechaReserva.value)" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fecha.errors }" />
+              <div *ngIf="submitted && f.fecha.errors" class="invalid-feedback class_error">
+                <div *ngIf="f.fecha.errors.required">Fecha es requerido</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Hora</label>
+              <select formControlName="hora" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.hora.errors }">
+                <option value="10">10:00</option>
+                <option value="11">11:00</option>
+                <option value="12">12:00</option>
+                <option value="13">13:00</option>
+                <option value="14">14:00</option>
+                <option value="15">15:00</option>
+                <option value="16">16:00</option>
+                <option value="17">17:00</option>
+                <option value="18">18:00</option>
+                <option value="19">19:00</option>
+                <option value="20">20:00</option>
+                <option value="21">21:00</option>
+              </select>
+              <div *ngIf="submitted && f.hora.errors" class="invalid-feedback class_error">
+                <div *ngIf="f.hora.errors.required">Hora es requerida</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Pista</label>
+              <select formControlName="pista" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pista.errors }">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <div *ngIf="submitted && f.pista.errors" class="invalid-feedback class_error">
+                <div *ngIf="f.pista.errors.required">Clave es requerid</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-12">
+                <div class="row">
+                  <div class="">
+                    <button class="btn btn-primary btn-sx sizeCien">Enviar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reserClass">
+    <table class="table">
+      <caption>Reservas por usuario</caption>
+      <thead>
+        <tr>
+          <th>Pista</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th id="btn_eliminar"></th>
+        </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngFor="let mydates of reservas">
+        <tr>
+          <td>{{mydates.courtId}}</td>
+          <td>{{mydates.rsvday}} </td>
+          <td>{{mydates.rsvtime}}</td>
+          <td>  <input type="button" value="Eliminar Reserva"  class="btn btn-info btn-xs" (click)="eliminarReserva(mydates.rsvId)"></td>
+        </tr>
+      </ng-container>
+      </tbody>
+    </table>
+  </div>
+  <div class="reserClass">
+    <table class="table">
+      <caption>Horarios reservados del d&iacute;a {{fechaReserva.value}}</caption>
+      <thead>
+      <tr>
+        <th>Pista</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngFor="let mydates of reservasAll">
+        <tr>
+          <td>{{mydates.courtId}}</td>
+          <td>{{mydates.rsvday}} </td>
+          <td>{{mydates.rsvtime}}</td>
+        </tr>
+      </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+</div>

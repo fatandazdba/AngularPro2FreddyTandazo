@@ -13,6 +13,8 @@ import { ViewEncapsulation } from '@angular/core';
 import { LogoutComponent } from './logout/logout.component';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { ReservarComponent } from './reservar/reservar.component';
+import { ServiciosComponent } from './servicios/servicios.component';
+import { CanchasinteticaComponent } from './canchasintetica/canchasintetica.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ReservarComponent } from './reservar/reservar.component';
     InicioComponent,
     LogoutComponent,
     RegistrarComponent,
-    ReservarComponent
+    ReservarComponent,
+    ServiciosComponent,
+    CanchasinteticaComponent
   ],
   imports: [
     BrowserModule,

@@ -17,11 +17,19 @@ export class InicioComponent implements OnInit {
   }
 
 InicializarLiginLout() {
+    console.log('(sessionStorage.getItem(\'isLoginAcepted\'): ' + (sessionStorage.getItem('isLoginAcepted')));
   if ((sessionStorage.getItem('isLoginAcepted') === 'true' )) {
     $('#logout').show();
-  } else {
+    $('#reservar').show();
     $('#login').hide();
     $('#registrar').hide();
+    console.log('if');
+  } else {
+    $('#login').show();
+    $('#registrar').show();
+    $('#logout').hide();
+    $('#reservar').hide();
+    console.log('else');
   }
 }
 
